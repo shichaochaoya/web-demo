@@ -1,0 +1,53 @@
+Tomcat 是一个servlet JSP（java server page java服务器页面） 规范的容器  Apache基金会
+weblogic 功能更强大 实现J2EE规范 收费
+
+servlet 是sun公司定义的一组java api 是一个tomcat容器
+
+//servlet三大域 ：
+           // 1.请求域 request（生存周期最短）  ServletRequest
+           //2.session域  会话域 30分钟左右 记录这次登陆 标记登录状态，标识会话 HttpSession
+           //3.context 应用域  生命周期最长 伴随整个应用 ServletContext
+
+
+
+
+//监听器 监听三个域
+网页提交后先进入监听器 再进入过滤器
+一般不用requst监听器 生命周期太短
+
+运行顺序：
+1.容器初始化
+2.过滤器初始化
+3.request请求来了
+4.session创建了（销毁时间自行设定）
+5.request监听器摧毁
+6.过滤器销毁
+7.容器销毁
+
+
+
+
+//Cookie:浏览器端
+Cookie 通常设置在HTTP请求头中 如果用户的浏览器被配置为储存cookie ，他将会保留此信息知道日期。如果用户的浏览器指向任何匹配该Cookie的路径和域的页面
+他会重新发送Cookie到服务器 Servlet就可以通过请求方法request.getCookies()访问Cookie ，该方法将返回一个Cookie对象的数组
+
+
+//Session：基于Cookie 用于服务器端
+
+jsp控制页面(只能控制JSP)
+1.请求转发 request  将请求转发到jsp文件 ，一个请求
+2.重定向  response  指定一个文件处理请求 ，有两次请求，两个响应
+
+
+正常请求：请求后刷新整个页面，跳转到不同页面，实现同步刷新，必须刷新本页面
+Ajax请求 实现异步刷新，本页面不用刷新，只用刷新一部分页面，提升用户体验
+
+
+        //response.sendRedirect("jspdemo2"); //重定向 指定一个文件处理请求 ，有两次请求，两个响应
+
+
+
+
+JSON
+初级  jackson
+高级      阿里巴巴的开源 fast josn
